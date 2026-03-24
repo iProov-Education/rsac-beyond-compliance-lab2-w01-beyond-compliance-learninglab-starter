@@ -47,8 +47,56 @@ app.get('/vp/request', (_req, res) => {
     client_id: BASE_URL,
     nonce,
     presentation_definition: {
-      id: 'starter-lab',
-      input_descriptors: []
+      id: 'over-21-and-nationality',
+      name: 'Over 21 and nationality',
+      purpose: 'Request proof that the holder is over 21 and disclose nationality to the relying party.',
+      input_descriptors: [
+        {
+          id: 'age-over-21',
+          name: 'Age over 21',
+          purpose: 'Ask the wallet for an age_over value that is at least 21.',
+          constraints: {
+            limit_disclosure: 'required',
+            fields: [
+              {
+                path: [
+                  '$.vc.credentialSubject.age_over',
+                  '$.credentialSubject.age_over',
+                  '$.age_over'
+                ],
+                filter: {
+                  type: 'number',
+                  minimum: 21
+                }
+              }
+            ]
+          }
+        },
+        {
+          id: 'nationality',
+          name: 'Nationality',
+          purpose: 'Ask the wallet for nationality. The integrated lab credential still uses residency, so the demo accepts that path too.',
+          constraints: {
+            limit_disclosure: 'required',
+            fields: [
+              {
+                path: [
+                  '$.vc.credentialSubject.nationality',
+                  '$.credentialSubject.nationality',
+                  '$.nationality',
+                  '$.vc.credentialSubject.residency',
+                  '$.credentialSubject.residency',
+                  '$.residency'
+                ],
+                filter: {
+                  type: 'string',
+                  minLength: 2
+                }
+              }
+            ]
+          }
+        }
+      ]
     }
   })
 })

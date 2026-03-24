@@ -137,7 +137,26 @@ Interpret `/iproov/config` like this:
   - the issuer has real iProov credentials
   - the iOS native SDK path can be used on a physical iPhone
 
-## Step 5: open the wallet RP page
+## Step 5: add a PID document in the wallet
+
+Do this before you try to scan the verifier QR code.
+
+In the wallet app:
+
+1. tap `+`
+2. choose `EU Form`
+3. add at least one PID document:
+   - `PID (MSO Mdoc)`, or
+   - `PID (SD-JWT VC)`
+4. fill in at least:
+   - name
+   - date of birth
+   - nationality
+5. save the document
+
+If you want the least workshop friction, add both PID variants so the verifier can accept either the SD-JWT VC or the mdoc path.
+
+## Step 6: open the wallet RP page
 
 On your laptop, open:
 
@@ -152,6 +171,7 @@ That page gives you three things:
 - the live result page that shows whether the presentation was received
 
 If you are using your own backend instead of the workshop backend, open that verifier's `/wallet` page instead.
+
 
 ## Step 6: follow the platform runbook
 
@@ -202,3 +222,7 @@ That means:
   - use a public HTTPS URL or your Mac LAN IP, not `localhost`
 - iProov confusion:
   - backend secrets stay in the backend repo or Codespace, never in the wallet repo
+- the QR scans but the wallet says no matching document:
+  - add a PID via `EU Form` first
+  - fill in name, date of birth, and nationality
+  - if needed, add both `PID (MSO Mdoc)` and `PID (SD-JWT VC)`

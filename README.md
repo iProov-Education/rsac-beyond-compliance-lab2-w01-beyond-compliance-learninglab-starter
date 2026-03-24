@@ -41,11 +41,13 @@ Local terminal fallback:
 - Lab 04: [labs/README-lab-04-iproov.md](labs/README-lab-04-iproov.md)
 - Lab 05: [labs/README-lab-05-revocation.md](labs/README-lab-05-revocation.md)
 - Optional Lab 06: [labs/README-lab-06-mobile-wallets.md](labs/README-lab-06-mobile-wallets.md) for the laptop-only mobile wallet track
+- Public wallet RP demo: `https://verifier.ipid.me/wallet`
 
 ## Docs
 
 Student docs:
 
 - Quick start: [ATTENDEE_QUICKSTART.md](ATTENDEE_QUICKSTART.md)
+- Wallet build guide: [BUILD_THE_WALLET.md](BUILD_THE_WALLET.md)
 - Optional mobile wallet runbook: [STUDENT_WALLET_RUNBOOK.md](STUDENT_WALLET_RUNBOOK.md) for local terminal + Xcode/Android Studio
 - Deeper technical reference: [TECHNICAL_REFERENCE.md](TECHNICAL_REFERENCE.md)

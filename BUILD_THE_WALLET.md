@@ -175,7 +175,27 @@ If you are using a local laptop backend instead of the workshop backend:
 
 Do not add new iProov gate code here. The workshop fork already contains it.
 
-## Step 5: start the presentation
+
+## Step 5: add a PID document in the wallet
+
+Before you scan the verifier QR code, make sure the wallet actually contains a PID the verifier can request.
+
+In the wallet app:
+
+1. tap `+`
+2. choose `EU Form`
+3. add at least one PID document:
+   - `PID (MSO Mdoc)`, or
+   - `PID (SD-JWT VC)`
+4. fill in at least:
+   - name
+   - date of birth
+   - nationality
+5. save the document and return to the wallet home/documents screen
+
+If you want the least friction for the workshop, add both PID variants so the verifier can use whichever format the wallet prefers.
+
+## Step 6: start the presentation
 
 On your laptop, open:
 
@@ -216,6 +236,8 @@ The presentation flow should look like this:
   - `verifier.ipid.me`
   - `https://verifier.ipid.me`
   - `iProov Verifier`
+- Confirm the wallet already contains a PID added through `EU Form`.
+- The required fields are name, date of birth, and nationality.
 
 `iOS does not run on the simulator`
 - Use a concrete arm64 simulator target.

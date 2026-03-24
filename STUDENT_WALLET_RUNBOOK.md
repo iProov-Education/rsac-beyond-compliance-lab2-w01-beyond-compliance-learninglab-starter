@@ -166,7 +166,26 @@ Interpret `/iproov/config` like this:
 
 For this workshop, the real iProov credentials stay in the backend, not in the wallet repo.
 
-## Step 5: use the verifier RP page
+## Step 5: add a PID document in the wallet
+
+Do this before you try to scan the verifier QR code.
+
+In the wallet app:
+
+1. tap `+`
+2. choose `EU Form`
+3. add at least one PID document:
+   - `PID (MSO Mdoc)`, or
+   - `PID (SD-JWT VC)`
+4. fill in at least:
+   - name
+   - date of birth
+   - nationality
+5. save the document
+
+If you want the least workshop friction, add both PID variants so the verifier can accept either the SD-JWT VC or the mdoc path.
+
+## Step 6: use the verifier RP page
 
 Open this page on your laptop:
 
@@ -182,7 +201,7 @@ That page gives you:
 
 If you are testing your own backend, open that verifier's `/wallet` page instead.
 
-## Step 6: set the verifier preregistration values
+## Step 7: set the verifier preregistration values
 
 For this workshop, use these preregistered verifier values:
 
@@ -191,6 +210,7 @@ For this workshop, use these preregistered verifier values:
 - verifier legal name: `iProov Verifier`
 
 Use those exact values in the wallet config files below.
+
 
 ## iOS track
 
@@ -208,6 +228,7 @@ Key files:
 The cloned workshop iOS fork already contains:
 
 - the `IProov Enabled` and `IProov Issuer Base URL` keys in `Wallet.plist`
+- the preregistered `verifier.ipid.me` OpenID4VP entry in `WalletKitConfig.swift`
 - `IProovPresentationGate.swift`
 - the `eudi-wallet://iproov` callback handling in `DeepLinkController.swift`
 - the iProov Swift package dependency
@@ -282,6 +303,9 @@ Use these issuer URLs:
 
 Do not use `localhost` on a physical iPhone.
 
+Before you scan the verifier QR code, confirm the wallet already contains a PID added through `EU Form`.
+The minimum useful fields are name, date of birth, and nationality.
+
 Use this verifier page to start the presentation:
 
 - `https://verifier.ipid.me/wallet`
@@ -312,6 +336,10 @@ When the wallet reaches the presentation loading step:
 - phone or simulator cannot reach the issuer:
   - make sure `IProov Issuer Base URL` matches the actual backend location
   - do not use `localhost` unless the issuer is local on the same Mac
+- the QR scans but the wallet says no matching document:
+  - add a PID via `EU Form` first
+  - fill in name, date of birth, and nationality
+  - if needed, add both `PID (MSO Mdoc)` and `PID (SD-JWT VC)`
 
 ## Android track
 
@@ -328,6 +356,7 @@ Key files:
 
 The cloned workshop Android fork already contains:
 
+- the preregistered `verifier.ipid.me` OpenID4VP entry in `WalletCoreConfigImpl.kt`
 - `presentation-feature/.../IProovPresentationGate.kt`
 - the `eudi-wallet://iproov` callback path
 - the presentation-loading hook that pauses until the iProov step completes
@@ -392,6 +421,9 @@ Use these issuer URLs:
 - shared public workshop backend:
   - use `https://issuer.ipid.me`
 
+Before you scan the verifier QR code, confirm the wallet already contains a PID added through `EU Form`.
+The minimum useful fields are name, date of birth, and nationality.
+
 Use this verifier page to start the presentation:
 
 - `https://verifier.ipid.me/wallet`
@@ -419,6 +451,10 @@ When the wallet reaches the presentation loading step:
 - session never passes:
   - inspect issuer logs
   - check `GET /iproov/session/:session`
+- the QR scans but the wallet says no matching document:
+  - add a PID via `EU Form` first
+  - fill in name, date of birth, and nationality
+  - if needed, add both `PID (MSO Mdoc)` and `PID (SD-JWT VC)`
 
 ## Instructor short answers
 

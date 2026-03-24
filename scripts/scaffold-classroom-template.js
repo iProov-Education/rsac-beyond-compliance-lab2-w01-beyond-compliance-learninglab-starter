@@ -32,6 +32,7 @@ const ROOT_EXCLUDES = new Set([
   'CONSENT_BUDGETS.md',
   'COURSE_CLASSROOM.md',
   'CURRENT_PLAN.md',
+  'instructor-cheatsheets',
   'LAB2-W01-Beyond_Compliance_A_Hands-On_Lab_for_Privacy-First_Digital_Identity.key',
   'LAB_ARTIFACT_PLAN.md',
   'LESSON_RUNBOOK.md',
@@ -166,7 +167,14 @@ async function main() {
   console.log(`[classroom-template] Ready at ${path.relative(ROOT, OUT_DIR)}`)
 }
 
-main().catch((err) => {
-  console.error('[classroom-template] FAILED:', err?.message || err)
-  process.exitCode = 1
-})
+if (require.main === module) {
+  main().catch((err) => {
+    console.error('[classroom-template] FAILED:', err?.message || err)
+    process.exitCode = 1
+  })
+}
+
+module.exports = {
+  ROOT_EXCLUDES,
+  shouldExclude
+}

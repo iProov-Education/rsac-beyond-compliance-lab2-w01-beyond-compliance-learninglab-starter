@@ -33,6 +33,7 @@ test('build-student-template keeps student wallet docs but excludes instructor-o
     await assertPathMissing(path.join(outDir, 'WALLET_FORKS.md'))
     await assertPathMissing(path.join(outDir, 'VILLAGE_DEMO_CONDUCTOR.md'))
     await assertPathMissing(path.join(outDir, 'COURSE_CLASSROOM.md'))
+    await assertPathMissing(path.join(outDir, 'instructor-cheatsheets'))
     await assertPathMissing(path.join(outDir, 'LAB2-W01-Beyond_Compliance_A_Hands-On_Lab_for_Privacy-First_Digital_Identity.key'))
     await assertPathMissing(path.join(outDir, 'wallet-ios'))
     await assertPathMissing(path.join(outDir, 'wallet-android'))
