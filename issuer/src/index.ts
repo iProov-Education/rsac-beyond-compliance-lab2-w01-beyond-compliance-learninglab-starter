@@ -66,6 +66,8 @@ app.post('/credential-offers', (_req: Request, res: Response) => {
   return notImplemented(res, 'Lab 01: implement pre-authorized credential offers')
 })
 
+// Lab 01 hint: read the pre-authorized code from the request, find that code in offers,
+// mint fresh access_token + c_nonce UUIDs, store them in accessTokens, then delete the used offer code.
 // See labs/README-lab-01-issuance.md for token exchange, access_token, and c_nonce behavior.
 app.post('/token', (_req: Request, res: Response) => {
   return notImplemented(res, 'Lab 01: implement token issuance for the pre-authorized flow')

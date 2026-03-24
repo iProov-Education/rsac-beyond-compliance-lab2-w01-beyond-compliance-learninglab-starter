@@ -196,6 +196,56 @@ Example response shape:
 }
 ```
 
+Do not return that example literally either.
+
+Your code should:
+
+- read the incoming `pre-authorized_code`
+- look it up in the in-memory offer store you populated in `/credential-offers`
+- reject the request if the code is missing or expired
+- mint a fresh `access_token`
+- mint a fresh `c_nonce`
+- store both of those in memory
+- delete the one-time offer code so it cannot be reused
+
+So the mental model is:
+
+- `/credential-offers` creates a temporary ticket
+- `/token` redeems that ticket once
+- `/credential` uses the returned access token and c_nonce next
+
+The minimal implementation shape is:
+
+```ts
+const code = req.body?.['pre-authorized_code'] || req.body?.pre_authorized_code
+const offer = offers.get(code)
+
+if (!offer || offer.expiresAt < Date.now()) {
+  return res.status(400).json({ error: 'invalid_grant' })
+}
+
+const accessToken = crypto.randomUUID()
+const cNonce = crypto.randomUUID()
+
+accessTokens.set(accessToken, {
+  token: accessToken,
+  expiresAt: Date.now() + 10 * 60_000,
+  cNonce,
+  cNonceExpiresAt: Date.now() + 5 * 60_000,
+  credentials: offer.credentials
+})
+
+offers.delete(code)
+
+res.json({
+  access_token: accessToken,
+  token_type: 'Bearer',
+  expires_in: 600,
+  c_nonce: cNonce,
+  c_nonce_expires_in: 300
+})
+```
+
 ### 4. Implement `POST /credential`
 
 This route is where the issuer finally creates the credential.
