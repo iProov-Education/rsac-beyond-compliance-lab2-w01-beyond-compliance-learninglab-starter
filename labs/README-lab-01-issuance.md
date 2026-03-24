@@ -39,6 +39,8 @@ The missing idea here is: you need an issuer signing keypair before this route c
 
 Create that keypair once at startup near the top of `issuer/src/index.ts`:
 
+- add the jose imports:
+  - `import { generateKeyPair, exportJWK } from 'jose'`
 - generate an ES256 keypair
 - keep the private key for signing credentials later
 - export the public key as a JWK
@@ -52,6 +54,8 @@ In plain English:
 The minimal shape is:
 
 ```ts
+import { generateKeyPair, exportJWK } from 'jose'
+
 const issuerKeys = await createIssuerKeys()
 
 async function createIssuerKeys() {
