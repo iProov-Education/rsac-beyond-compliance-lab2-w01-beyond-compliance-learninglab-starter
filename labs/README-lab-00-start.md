@@ -4,6 +4,8 @@ Lab ID: `00` · Timebox: 10 minutes
 
 Goal: boot the starter repo, confirm the services are alive, and confirm the unfinished endpoints still return `501`.
 
+If you want to compare against the working implementation for this lab or jump ahead, use [WORKING_SOLUTIONS.md](../WORKING_SOLUTIONS.md).
+
 ## What this lab is for
 
 Do not build anything yet.

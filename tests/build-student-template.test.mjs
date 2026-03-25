@@ -29,6 +29,9 @@ test('build-student-template keeps student wallet docs but excludes instructor-o
 
     await assertPathExists(path.join(outDir, 'labs', 'README-lab-06-mobile-wallets.md'))
     await assertPathExists(path.join(outDir, 'STUDENT_WALLET_RUNBOOK.md'))
+    await assertPathExists(path.join(outDir, 'WORKING_SOLUTIONS.md'))
+    await assertPathExists(path.join(outDir, 'scripts', 'fast-forward-student-lab.js'))
+    await assertPathExists(path.join(outDir, 'scripts', 'build-take-home-bundle.js'))
 
     await assertPathMissing(path.join(outDir, 'WALLET_FORKS.md'))
     await assertPathMissing(path.join(outDir, 'VILLAGE_DEMO_CONDUCTOR.md'))
@@ -41,6 +44,7 @@ test('build-student-template keeps student wallet docs but excludes instructor-o
     const studentReadme = await fs.readFile(path.join(outDir, 'README.md'), 'utf8')
     assert.match(studentReadme, /Optional Lab 06/)
     assert.match(studentReadme, /STUDENT_WALLET_RUNBOOK/)
+    assert.match(studentReadme, /WORKING_SOLUTIONS/)
     assert.doesNotMatch(studentReadme, /WALLET_FORKS\.md/)
     assert.doesNotMatch(studentReadme, /VILLAGE_DEMO_CONDUCTOR\.md/)
     assert.doesNotMatch(studentReadme, /COURSE_CLASSROOM\.md/)
@@ -58,6 +62,10 @@ test('build-student-template keeps student wallet docs but excludes instructor-o
     const walletBuildGuide = await fs.readFile(path.join(outDir, 'BUILD_THE_WALLET.md'), 'utf8')
     assert.match(walletBuildGuide, /johan-sellstrom\/eudi-app-ios-wallet-ui/)
     assert.match(walletBuildGuide, /already contain the iProov presentation-gate work/i)
+
+    const workingSolutions = await fs.readFile(path.join(outDir, 'WORKING_SOLUTIONS.md'), 'utf8')
+    assert.match(workingSolutions, /fast-forward-student-lab\.js/)
+    assert.match(workingSolutions, /Peeking is allowed/i)
   } finally {
     await fs.rm(tmpRoot, { recursive: true, force: true })
   }

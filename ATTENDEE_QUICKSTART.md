@@ -86,6 +86,7 @@ pnpm dev
 ## If you get stuck
 
 - Bring a facilitator your repo URL and the exact terminal error.
+- If you want to compare against the working state for the current lesson, use [WORKING_SOLUTIONS.md](WORKING_SOLUTIONS.md).
 - If GitHub shows `Repository Access Issue`, accept the pending repository invitation first.
 - If `pnpm dev` fails with `tsx: not found`, run `pnpm install -r --frozen-lockfile && pnpm env:setup` once, then retry.
 - If the lab asks for `curl` while `pnpm dev` is already running, open a second terminal instead of stopping the dev servers.

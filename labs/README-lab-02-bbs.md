@@ -4,6 +4,8 @@ Lab ID: `02` · Timebox: 25 minutes
 
 Goal: issue a BBS credential, reveal only one claim from it, and verify that selective disclosure proof.
 
+If you want to compare against the working implementation for this lab or jump ahead, use [WORKING_SOLUTIONS.md](../WORKING_SOLUTIONS.md).
+
 ## What this lab changes
 
 Lab 01 issued an SD-JWT.

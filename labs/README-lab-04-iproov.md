@@ -4,6 +4,8 @@ Lab ID: `04` · Timebox: 20 minutes
 
 Goal: do not issue or accept the protected credential flow until an iProov session has passed.
 
+If you want to compare against the working implementation for this lab or jump ahead, use [WORKING_SOLUTIONS.md](../WORKING_SOLUTIONS.md).
+
 ## What this lab is really about
 
 The main idea is simple:

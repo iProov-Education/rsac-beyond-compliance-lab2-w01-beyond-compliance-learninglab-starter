@@ -4,6 +4,8 @@ Starter repo for the Beyond Compliance learning lab.
 
 Most students only need GitHub Classroom, GitHub Codespaces, and the lab docs below.
 
+If you get blocked and want to compare against a known-good lesson state, use [WORKING_SOLUTIONS.md](WORKING_SOLUTIONS.md).
+
 ## Start Here
 
 1. Accept the GitHub Classroom invite shared by the instructors.
@@ -48,6 +50,7 @@ Local terminal fallback:
 Student docs:
 
 - Quick start: [ATTENDEE_QUICKSTART.md](ATTENDEE_QUICKSTART.md)
+- Working implementations: [WORKING_SOLUTIONS.md](WORKING_SOLUTIONS.md)
 - Wallet build guide: [BUILD_THE_WALLET.md](BUILD_THE_WALLET.md)
 - Optional mobile wallet runbook: [STUDENT_WALLET_RUNBOOK.md](STUDENT_WALLET_RUNBOOK.md) for local terminal + Xcode/Android Studio
 - Deeper technical reference: [TECHNICAL_REFERENCE.md](TECHNICAL_REFERENCE.md)

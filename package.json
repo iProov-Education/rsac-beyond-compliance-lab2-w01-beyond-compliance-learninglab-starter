@@ -18,6 +18,7 @@
     "classroom:progress": "node scripts/classroom-progress.js",
     "classroom:set-lab-id": "node scripts/set-lab-id.js",
     "classroom:template": "node scripts/scaffold-classroom-template.js --clean",
+    "take-home:bundle": "node scripts/build-take-home-bundle.js",
     "test:gating": "node --test tests/session-gating.test.mjs",
     "env:setup": "node scripts/setup-env.js",
     "env:setup:force": "node scripts/setup-env.js --force"

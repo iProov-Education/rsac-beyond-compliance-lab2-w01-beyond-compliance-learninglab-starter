@@ -4,6 +4,8 @@ Lab ID: `05` · Timebox: 20 minutes
 
 Goal: mark an issued credential as revoked and make the verifier reject it after that.
 
+If you want to compare against the working implementation for this lab or jump ahead, use [WORKING_SOLUTIONS.md](../WORKING_SOLUTIONS.md).
+
 ## What this lab is really about
 
 Think of the status list as a long row of bits:

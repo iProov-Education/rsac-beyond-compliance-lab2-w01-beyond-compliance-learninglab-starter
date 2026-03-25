@@ -4,6 +4,8 @@ Lab ID: `01` · Timebox: 20 minutes
 
 Goal: make the issuer mint one SD-JWT credential, then make the verifier accept it.
 
+If you want to compare against the working implementation for this lab or jump ahead, use [WORKING_SOLUTIONS.md](../WORKING_SOLUTIONS.md).
+
 ## Before you start
 
 - Stay on `main`.

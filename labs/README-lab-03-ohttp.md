@@ -4,6 +4,8 @@ Lab ID: `03` · Timebox: 20 minutes
 
 Goal: make outbound fetches go through a relay instead of going straight from the verifier to the issuer.
 
+If you want to compare against the working implementation for this lab or jump ahead, use [WORKING_SOLUTIONS.md](../WORKING_SOLUTIONS.md).
+
 ## What this lab is really about
 
 This lab is mostly wiring, not cryptography.
